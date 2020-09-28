@@ -142,6 +142,28 @@ void * firstTreeMap(TreeMap * tree)
   return aux_node->value;
 }
 
-void * nextTreeMap(TreeMap * tree) {
-    return NULL;
+void * nextTreeMap(TreeMap * tree) 
+{
+  if(tree->current == NULL) return NULL;
+
+  if(tree->current->right == NULL)
+  {
+    void* aux_key = tree->current->key;
+    while(tree->current->key <= aux_key && tree->current->parent != NULL)
+      tree->current = tree->current->parent;
+
+    if(tree->current == tree->root && tree->current->key < aux_key) //si es el mayor
+    {
+      tree->current = NULL;
+      return NULL;
+    }    
+  }
+  else
+  {
+    tree->current = tree->current->right;
+    while(tree->current->left != NULL)
+      tree->current = tree->current->left; 
+  }
+
+  return tree->current->value;
 }
