@@ -78,11 +78,9 @@ void * searchTreeMap(TreeMap * tree, void* key)
     if(aux_node->key > key)
       aux_node = aux_node->left;
     else
-    {
       aux_node = aux_node->right;
-    }
       
-    if(aux_node == NULL)  return NULL;
+    if(aux_node->key == NULL)  return NULL;
   } 
   
   tree->current = aux_node;
