@@ -124,8 +124,39 @@ void * searchTreeMap(TreeMap * tree, void* key)
 }
 
 
-void * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+void * upperBound(TreeMap * tree, void* key) 
+{
+  TreeNode* aux_node = tree->root;
+  TreeNode* higher;
+
+  if(aux_node == NULL) return NULL;
+
+  while(aux_node != NULL)
+  {
+    if(aux_node->key == key)
+    {
+      tree->current = aux_node;
+      return aux_node->value;
+    }
+
+    if(aux_node->key >= key)
+    {
+      higher = aux_node;
+      aux_node = aux_node->left;
+    }
+    else aux_node = aux_node->right;
+
+    if(aux_node == NULL)
+    {
+      tree->current = higher;
+      return higher->value;
+    }
+  }
+
+  tree->current = aux_node;
+
+  if(aux_node->key == key) return aux_node->value;
+  else return NULL;
 }
 
 void * firstTreeMap(TreeMap * tree)
