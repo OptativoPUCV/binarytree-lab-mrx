@@ -149,7 +149,7 @@ void * nextTreeMap(TreeMap * tree)
   if(tree->current->right == NULL)
   {
     void* aux_key = tree->current->key; //se guarda llave del current
-    while(tree->current->key < aux_key && tree->current->parent != NULL)
+    while(tree->current->key <= aux_key && tree->current->parent != NULL)
       tree->current = tree->current->parent;
 
     if(tree->current == tree->root && tree->current->key < aux_key) //si es el mayor
