@@ -1,0 +1,124 @@
+{
+  "tests": [
+    {
+      "name": "createTreeMap",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 0 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "searchTreeMap",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 1 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "insertTreeMap",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 2 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "RemoveNode1",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 3 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "RemoveNode2",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 4 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "RemoveNode3",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 5 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "firstTreeMap",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 6 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "nextTreeMap1",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 7 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "nextTreeMap2",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 8 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "nextTreeMap3",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 9 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "upperBound",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 10 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "upperBound2",
+      "setup": "",
+      "run": "gcc test.c; ./a.out 11 | tail -n1 ",
+      "input": "",
+      "output": "SUCCESS",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    }
+  ]
+}
