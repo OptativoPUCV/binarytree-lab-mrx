@@ -176,6 +176,7 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
+  /*
   if(tree->current == NULL) return NULL;
 
   if(tree->current->right == NULL)
@@ -198,4 +199,6 @@ void * nextTreeMap(TreeMap * tree)
   }
 
   return tree->current->value;
+  */
+  return NULL;
 }
