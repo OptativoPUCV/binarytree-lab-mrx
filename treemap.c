@@ -75,7 +75,7 @@ void * searchTreeMap(TreeMap * tree, void* key)
 
   while(aux_node->key != key)
   {
-    if(aux_node->key < key)
+    if(aux_node->key > key)
       aux_node = aux_node->left;
     else
       aux_node = aux_node->right;
