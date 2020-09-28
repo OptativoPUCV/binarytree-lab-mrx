@@ -48,11 +48,9 @@ TreeNode* minimum(TreeNode* node)
 {
   if(node->left == NULL)  return node;
   
-  TreeNode* min = node;
+  while(node->left != NULL) node = node->left;
 
-  while(min->left != NULL) min = min->left;
-
-  return min;
+  return node;
 }
 
 void insertTreeMap(TreeMap * tree, void* key, void * value)
@@ -198,6 +196,7 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
+  /*
   if(tree->current == NULL) return NULL;
 
   if(tree->current->right == NULL)
@@ -220,4 +219,6 @@ void * nextTreeMap(TreeMap * tree)
   }
 
   return tree->current->value;
+  */
+  return NULL;
 }
