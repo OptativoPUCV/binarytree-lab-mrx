@@ -72,3 +72,8 @@ Mon Sep 28 19:33:39 UTC 2020:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 adb167d
+Mon Sep 28 19:37:41 UTC 2020: 
+ treemap.c | 29 ++++++++++++-----------------
+ 1 file changed, 12 insertions(+), 17 deletions(-)
+ tests:  0|0
+80b9607
