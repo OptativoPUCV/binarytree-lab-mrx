@@ -203,5 +203,5 @@ void * nextTreeMap(TreeMap * tree)
     aux_node = aux_node->parent;
   }
 
-  return aux_node->value;
+  return tree->current->value;
 }
