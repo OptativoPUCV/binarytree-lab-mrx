@@ -81,13 +81,24 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
-  if(node->right == NULL && node->left == NULL) node->parent = NULL;
+  if(node->right == NULL && node->left == NULL)
+  {
+    node = NULL;
+    free(node);
+  }
 
   if(node->right != NULL && node->left == NULL)
+  {
     node->right->parent = node->parent;
-
+    free(node);
+  }
+    
   if(node->left != NULL && node->right == NULL)
+  {
     node->left->parent = node->parent;
+    free(node);
+  }
+    
 
   if(node->right != NULL && node->left != NULL)
   {
@@ -127,26 +138,17 @@ void * searchTreeMap(TreeMap * tree, void* key)
   return aux_node->value;
 }
 
-void ub(TreeNode** current, TreeNode* root, void* key)
-{
-  if(root == NULL) return;
-
-  if(root->key < key) ub(current, root->right, key);
-  else
-  {
-    *current = root;
-    ub(current, root->left, key);
-  }
-}
 
 void * upperBound(TreeMap * tree, void* key) 
 {
+  /*
   tree->current = NULL;
-
-  ub(&tree->current, tree->root, key);
+  if(tree == NULL || tree->root == NULL)
 
   if(tree->current != NULL) return tree->current->value;
   else return NULL;
+  */
+  return NULL;
 }
 
 void * firstTreeMap(TreeMap * tree)
