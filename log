@@ -124,3 +124,8 @@ Tue Sep 29 16:14:40 UTC 2020:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 eb3e996
+Tue Sep 29 16:21:00 UTC 2020: 
+ treemap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+ tests:  0|0
+cdaf6bd
