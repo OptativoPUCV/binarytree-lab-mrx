@@ -127,39 +127,26 @@ void * searchTreeMap(TreeMap * tree, void* key)
   return aux_node->value;
 }
 
+void ub(TreeNode** current, TreeNode* root, void* key)
+{
+  if(root == NULL) return;
+
+  if(root->key < key) ub(current, root->right, key);
+  else
+  {
+    *current = root;
+    ub(current, root->left, key);
+  }
+}
 
 void * upperBound(TreeMap * tree, void* key) 
 {
-  TreeNode* aux = tree->root;
-  TreeNode* mayor;
-  if(aux  == NULL) return NULL;
-  while(aux != NULL)
-  {
-    if(aux->key == key)
-    {
-      tree->current = aux;
-      return aux->value;
-    }
-        
-    if(aux->key >= key){
-      mayor = aux;
-      aux = aux->left;
-    }
-    else aux = aux->right;
-       
-    if (aux == NULL)
-    {
-      tree->current = mayor;
-      return mayor->value;
-    }
-  }
-    
-  tree->current = aux; 
+  tree->current = NULL;
 
-  if(aux->key == key) return aux->value;
+  ub(&tree->current, tree->root, key);
+
+  if(tree->current != NULL) return tree->current->value;
   else return NULL;
-
-  
 }
 
 void * firstTreeMap(TreeMap * tree)
