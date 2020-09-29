@@ -181,7 +181,7 @@ void * nextTreeMap(TreeMap * tree)
     return tree->current->value;
   }
 
-  TreeNode* aux_node = tree->current;
+  TreeNode* aux_node = tree->current->parent;
 
   if(aux_node != NULL)
   {
