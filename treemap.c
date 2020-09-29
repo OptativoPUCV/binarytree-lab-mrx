@@ -123,23 +123,20 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 void * searchTreeMap(TreeMap * tree, void* key) 
 {
-  TreeNode* aux_node = tree->root;
-  if(aux_node == NULL) return NULL;
+  tree->current = tree->root;
+  if(tree->current == NULL) return NULL;
 
-  while(aux_node->key != key && aux_node != NULL)
+  while(tree->current->key != key)
   {
-    if(aux_node->key > key)
-      aux_node = aux_node->left;
+    if(tree->current->key > key)
+      tree->current = tree->current->left;
     else
-      aux_node = aux_node->right;
-      
+      tree->current = tree->current->right;
+
+    if(tree->current == NULL)  return NULL;  
   } 
-
-  if(aux_node == NULL)  return NULL;
-  
-  tree->current = aux_node;
-
-  return aux_node->value;
+ 
+  return tree->current->value;
 }
 
 
