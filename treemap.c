@@ -71,12 +71,13 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
     else aux_node = aux_node->right;
   }
 
-  if(aux_node->right == NULL)
+  if(aux_node->right == NULL && aux_node->left != NULL)
   {
     aux_node->right = new_node;
     new_node->parent = aux_node;  
   }
-  else
+  
+  if(aux_node->left == NULL && aux_node->right != NULL)
   {
     aux_node->left = new_node;
     new_node->parent = aux_node;
