@@ -81,7 +81,10 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
-  if(node->right == NULL && node->left == NULL) free(node);
+  if(node->right == NULL && node->left == NULL)
+  {
+    return;
+  }
 
   if(node->right != NULL && node->left == NULL)
   {
