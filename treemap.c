@@ -126,7 +126,7 @@ void * searchTreeMap(TreeMap * tree, void* key)
   tree->current = tree->root;
   if(tree->current == NULL) return NULL;
 
-  while(tree->current->key != key)
+  while(tree->current->key != key && tree->current->right != NULL && tree->current->left != NULL)
   {
     if(tree->current->key > key)
       tree->current = tree->current->left;
