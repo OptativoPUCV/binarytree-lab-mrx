@@ -64,13 +64,13 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
     return;
   }
 
-  while(aux_node != NULL)
+  while(aux_node != NULL && aux_node->key != key) //busqueda de la clave
   {
     if(key < aux_node->key) aux_node = aux_node->left;
     else aux_node = aux_node->right;
   }
 
-  if(is_equal(tree, aux_node->key, key) == 1) return;
+  if(aux_node->key == key) return;
 
   if(key < aux_node->key)
   {
