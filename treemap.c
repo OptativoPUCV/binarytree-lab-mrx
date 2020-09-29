@@ -134,9 +134,9 @@ void * searchTreeMap(TreeMap * tree, void* key)
       aux = aux->right;
 
     if(aux == NULL)  return NULL;
-
-    if(aux->right == NULL && aux->left == NULL && aux->key != key) return NULL; //no se encontro la key
   } 
+  
+  tree->current = aux;
   
   return tree->current->value;
 }
