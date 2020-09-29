@@ -360,3 +360,9 @@ Tue Sep 29 21:03:43 UTC 2020:
  tests:  11|5
 total_score: 15/70
 30f155a
+Tue Sep 29 21:05:18 UTC 2020: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  10|5
+total_score: 15/70
+8b73d1a
