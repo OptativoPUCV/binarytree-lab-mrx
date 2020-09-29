@@ -180,26 +180,28 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
-  if(tree->current == NULL) return NULL;
+  if(tree->current == NULL || tree->root == NULL || tree->current == NULL) return NULL;
 
-  if(tree->current->right == NULL)
+  if(tree->current->right != NULL)
   {
-    void* aux_key = tree->current->key; //se guarda llave del current
-    while(tree->current->key <= aux_key && tree->current->parent != NULL)
-      tree->current = tree->current->parent;
+    TreeNode* aux_node = tree->current->right;
 
-    if(tree->current == tree->root && tree->current->key < aux_key) //si es el mayor
-    {
-      tree->current = NULL;
-      return NULL;
-    }    
-  }
-  else
-  {
-    tree->current = tree->current->right;
-    while(tree->current->left != NULL)
-      tree->current = tree->current->left; 
+    while(aux_node->left != NULL) aux_node = aux_node->left;
+
+    tree->current = aux_node;
+
+    if(tree->current == NULL) return NULL;
+
+    return (void*)tree->current->value;
   }
 
-  return tree->current->value;
+  TreeNode* aux_node = tree->current->parent;
+
+  while(aux_node != NULL && tree->current == aux_node->right)
+  {
+    tree->current = aux_node;
+    aux_node = aux_node->parent;
+  }
+
+  return aux_node->value;
 }
