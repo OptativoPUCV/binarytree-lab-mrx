@@ -81,6 +81,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
+  if(node == NULL) return;
+  
   if(node->right == NULL && node->left == NULL) //no tiene hijo
   {
     node = NULL;
