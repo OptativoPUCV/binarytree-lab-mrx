@@ -222,5 +222,5 @@ void * nextTreeMap(TreeMap * tree)
     tree->current = aux_node;
     return tree->current->value;
   }
-  else return tree->current->value;
+  else return NULL;
 }
