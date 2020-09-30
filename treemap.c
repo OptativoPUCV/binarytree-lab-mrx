@@ -170,7 +170,7 @@ void * nextTreeMap(TreeMap * tree)
 {
   if(tree->current == NULL || tree->root == NULL || tree->current == NULL) return NULL;
 
-  if(tree->current->right != NULL && tree->current->parent->key < tree->current->right->key)
+  if(tree->current->right != NULL)
   {
     TreeNode* aux_node = tree->current->right;
 
