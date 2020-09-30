@@ -102,12 +102,12 @@ void removeNode(TreeMap * tree, TreeNode* node)
     if(node == node->parent->right)
     {
       node->parent->right = node->right;
-      node->left->parent = node->parent;
+      node->right->parent = node->parent;
     } 
     else if(node == node->parent->left)
     {
       node->parent->left = node->right;
-      node->right->parent = node->parent;
+      node->left->parent = node->parent;
     }
 
     node = NULL;
@@ -119,12 +119,12 @@ void removeNode(TreeMap * tree, TreeNode* node)
     if(node == node->parent->right)
     {
       node->parent->right = node->left;
-      node->left->parent = node->parent;
+      node->right->parent = node->parent;
     } 
     else if(node == node->parent->left)
     {
       node->parent->left = node->left;
-      node->right->parent = node->parent;
+      node->left->parent = node->parent;
     }
     
     node = NULL;
@@ -157,13 +157,11 @@ void * searchTreeMap(TreeMap * tree, void* key)
 
   TreeNode* aux_node = tree->root;
 
-  while(key != aux_node->key)
+  while(aux_node->left != NULL || aux_node->right != NULL)
   {
-    if(tree->lower_than(key, aux_node->key)) aux_node = aux_node->left;
-    else
-      if(tree->lower_than(aux_node->key, key))
-        aux_node = aux_node->right;
-      else return NULL;    
+    if(key < aux_node->key) aux_node = aux_node->left;
+    else if(key < aux_node->key) aux_node = aux_node->right;
+    else break;
   }
 
   tree->current = aux_node;
