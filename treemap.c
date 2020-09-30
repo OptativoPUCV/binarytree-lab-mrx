@@ -179,8 +179,7 @@ void * nextTreeMap(TreeMap * tree)
     tree->current = aux_node;
 
     if(tree->current == NULL) return NULL;
-
-    return tree->current->value;
+    else return tree->current->value;
   }
 
   TreeNode* aux_node = tree->current->parent;
