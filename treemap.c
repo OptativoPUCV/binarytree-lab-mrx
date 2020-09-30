@@ -81,26 +81,26 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
-  if(node->right == NULL && node->left == NULL)
+  if(node->right == NULL && node->left == NULL) //no tiene hijo
   {
     node = NULL;
     free(node);
   }
 
-  if(node->right != NULL && node->left == NULL)
+  if(node->right != NULL && node->left == NULL) //solo hijo derecho
   {
-    node->right->parent = node->parent;
+    node->parent->right = node->right;
     free(node);
   }
     
-  if(node->left != NULL && node->right == NULL)
+  if(node->left != NULL && node->right == NULL) //solo hijo izquierdo
   {
-    node->left->parent = node->parent;
+    node->parent->left = node->left;
     free(node);
   }
     
 
-  if(node->right != NULL && node->left != NULL)
+  if(node->right != NULL && node->left != NULL) //2 hijos
   {
     TreeNode* min = minimum(node);
     node->key = min->key;
