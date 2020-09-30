@@ -207,21 +207,23 @@ void * nextTreeMap(TreeMap * tree)
   {
     TreeNode* aux_node = tree->current->right;
 
-    while(aux_node->left != NULL) aux_node = aux_node->left;
+    aux_node = minimum(aux_node);
 
     tree->current = aux_node;
 
     return tree->current->value;
   }
-
-  TreeNode* aux_node = tree->current->parent;
-
-
-  if(aux_node != NULL)
+  else
   {
-    tree->current = aux_node;
-    aux_node = aux_node->parent;
-    return tree->current->value;
+    TreeNode* aux_node = tree->current->parent;
+    
+    if(aux_node != NULL)
+    {
+      tree->current = aux_node;
+      aux_node = aux_node->parent;
+      return tree->current->value;
+    }
+    else return NULL;
   }
-  else return NULL;
+
 }
