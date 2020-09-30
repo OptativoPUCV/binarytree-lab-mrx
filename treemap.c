@@ -99,15 +99,31 @@ void removeNode(TreeMap * tree, TreeNode* node)
 
   if(node->right != NULL && node->left == NULL) //node tiene solo hijo derecho
   {
-    if(node == node->parent->right) node->parent->right = node->right; //es hijo der de su padre
-    else if(node == node->parent->left) node->parent->left = node->right; //es hijo izq de su padre
+    if(node == node->parent->right)
+    {
+      node->parent->right = node->right;
+      node->right->parent = node->parent;
+    } 
+    else if(node == node->parent->left)
+    {
+      node->parent->left = node->right;
+      node->left->parent = node->parent;
+    } 
     free(node);
   }
   
   if(node->left != NULL && node->right == NULL) //node tiene solo hijo izquierdo
   {
-    if(node == node->parent->right) node->parent->right = node->left; //es hijo der de su padre
-    else if(node == node->parent->left) node->parent->left = node->left; //es hijo izq de su padre
+    if(node == node->parent->right)
+    {
+      node->parent->right = node->left;
+      node->right->parent = node->parent;
+    } 
+    else if(node == node->parent->left)
+    {
+      node->parent->left = node->left;
+      node->left->parent = node->left;
+    } 
     free(node);
   }
     
