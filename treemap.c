@@ -199,23 +199,37 @@ void * firstTreeMap(TreeMap * tree)
 }
 
 
-void * nextTreeMap(TreeMap * tree)  {
-    if(tree->current == NULL) return NULL; //Si la posicion actual es nula retorna null
-    if (tree->current->right != NULL){ // Caso si tiene hijo derecho
-        tree->current = tree->current->right;
-        while(tree->current->left != NULL){
-            tree->current = tree->current->left;
-        }
-    }else{ // Caso no tiene hijo derecho
-        TreeNode* aux = tree->current; // Se guarda la key del current
-        while(tree->current->parent != NULL && tree->current->key <= aux->key){ //Mientras el padre exista y la llave sea menor a la llave del current
-            tree->current = tree->current->parent; //current ira subiendo
-        }
-        if(tree->current == tree->root && tree->current->key < aux->key){//Caso no tiene next (es el mayor)
-            tree->current = NULL;
-            return NULL; 
-        } 
-    }
-    return tree->current->value;
-}
+void * nextTreeMap(TreeMap * tree) 
+{
+  if(tree->current == NULL) return NULL;
 
+  if(tree->current->right != NULL)
+  {
+    TreeNode* aux_node = tree->current->right;
+
+    aux_node = minimum(aux_node);
+
+    tree->current = aux_node;
+
+    if(tree->current == NULL) return NULL;
+
+    return tree->current->value;
+  }
+  
+  TreeNode* aux = tree->current->parent;
+
+  while(aux != NULL && tree->current == aux->right)
+  {
+    tree->current = aux;
+    aux = aux->parent;
+  }
+    
+  if(tree->current == tree->root && tree->current->key < aux->key)
+  {
+    tree->current = NULL;
+    return NULL;
+  }
+
+  return tree->current->value;
+    
+}
