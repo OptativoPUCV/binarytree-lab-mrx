@@ -219,7 +219,8 @@ void * nextTreeMap(TreeMap * tree)
   {
     TreeNode* aux_node = tree->current->right;
 
-    aux_node = minimum(aux_node);
+    if(aux_node->left == NULL) return aux_node->value;
+    else aux_node = minimum(aux_node);
 
     tree->current = aux_node;
 
