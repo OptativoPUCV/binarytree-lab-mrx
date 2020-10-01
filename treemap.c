@@ -224,7 +224,7 @@ void * nextTreeMap(TreeMap * tree)
     
     if(tree->current == tree->root && tree->current->key <= aux->key)
     {
-      tree->current = NULL;
+      tree->current = tree->root;
       return NULL;
     }
   }
