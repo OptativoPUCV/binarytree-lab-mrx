@@ -227,7 +227,8 @@ void * nextTreeMap(TreeMap * tree)
       return NULL;
     }
 
-  }
+  }else return tree->current->value;
+
+  return NULL;
     
-  return tree->current->value;
 }
