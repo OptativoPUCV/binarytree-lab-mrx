@@ -201,7 +201,7 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
-  if(tree->current == NULL) return NULL;
+  if(tree->current == NULL || tree->root == NULL) return NULL;
 
   if(tree->current->right != NULL)
   {
@@ -217,7 +217,6 @@ void * nextTreeMap(TreeMap * tree)
   {
     tree->current = tree->current->left;
     TreeNode* aux = tree->current;
-
 
     while(tree->current->parent != NULL && tree->current->key < aux->key)
       tree->current = tree->current->parent;
