@@ -201,7 +201,7 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
-  if(tree->current == NULL || tree->root == NULL) return NULL;
+  if(tree->current == NULL) return NULL;
 
   if(tree->current->right != NULL)
   {
