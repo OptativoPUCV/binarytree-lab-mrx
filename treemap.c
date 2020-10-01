@@ -191,7 +191,6 @@ void * upperBound(TreeMap * tree, void* key)
   }
 
   tree->current = higher;
-  higher = NULL;
 
   return tree->current->value;
 }
