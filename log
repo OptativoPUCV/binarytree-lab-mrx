@@ -841,3 +841,9 @@ Thu Oct  1 14:24:16 UTC 2020:
  1 file changed, 1 insertion(+)
  tests:  0|0
 1bf4587
+Thu Oct  1 14:24:26 UTC 2020: 
+ treemap.c | 1 -
+ 1 file changed, 1 deletion(-)
+ tests:  27|2
+total_score: 60/70
+bc1f816
