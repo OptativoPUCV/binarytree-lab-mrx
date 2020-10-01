@@ -174,7 +174,7 @@ void * searchTreeMap(TreeMap * tree, void* key)
 
 void * upperBound(TreeMap * tree, void* key) 
 {
-  if(tree->root == NULL || tree == NULL) return NULL;
+  if(tree->root == NULL || tree == NULL || tree->current == NULL) return NULL;
 
   TreeNode* aux_node = tree->root;
   TreeNode* higher = tree->root;
