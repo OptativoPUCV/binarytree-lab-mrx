@@ -215,21 +215,19 @@ void * nextTreeMap(TreeMap * tree)
 
     return tree->current->value;
   }
-  
-  TreeNode* aux = tree->current->parent;
-
-  while(aux != NULL && tree->current == aux->right)
+  else if(tree->current->right == NULL)
   {
-    tree->current = aux;
-    aux = aux->parent;
-  }
+    TreeNode* aux = tree->current;
+
+    while(tree->current->parent != NULL && aux->key < tree->current->key)
+      tree->current = tree->current->parent;
     
-  if(tree->current == tree->root && tree->current->key < aux->key)
-  {
-    tree->current = NULL;
-    return NULL;
+    if(tree->current == tree->root && tree->current->key < aux->key)
+    {
+      tree->current = NULL;
+      return NULL;
+    }
   }
 
-  return tree->current->value;
-    
+  return tree->current->value;  
 }
