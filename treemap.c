@@ -217,7 +217,7 @@ void * nextTreeMap(TreeMap * tree)
   }
   else if(tree->current->right == NULL)
   {
-    TreeNode* aux = tree->current->parent;
+    TreeNode* aux = tree->current;
 
     while(tree->current->parent != NULL && aux->key <= tree->current->key)
       tree->current = tree->current->parent;
