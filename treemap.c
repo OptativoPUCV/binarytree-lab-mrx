@@ -171,7 +171,6 @@ void * searchTreeMap(TreeMap * tree, void* key)
   return NULL;
 }
 
-
 void * upperBound(TreeMap * tree, void* key) 
 {
   if(tree->root == NULL || tree == NULL) return NULL;
@@ -189,7 +188,6 @@ void * upperBound(TreeMap * tree, void* key)
       aux_node = aux_node->left;
     }else return aux_node->value;
   }
-
   
   if(aux_node == NULL) return higher->value;
   else return aux_node->key;
@@ -222,8 +220,6 @@ void * nextTreeMap(TreeMap * tree)
     else aux_node = minimum(aux_node);
 
     tree->current = aux_node;
-
-    if(tree->current == NULL) return NULL;
 
     return tree->current->value;
   }
