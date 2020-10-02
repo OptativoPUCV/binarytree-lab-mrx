@@ -239,11 +239,6 @@ void * nextTreeMap(TreeMap * tree)
       return NULL;
     }
   }
-  else
-  {
-    tree->current = NULL;
-    return NULL;
-  }
     
   return tree->current->value;  
 }
