@@ -223,7 +223,7 @@ void * nextTreeMap(TreeMap * tree)
 
     return tree->current->value;
   }
-  else if(tree->current->right == NULL)
+  else
   {
     void* aux = tree->current->key;
 
