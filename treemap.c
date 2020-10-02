@@ -226,15 +226,14 @@ void * nextTreeMap(TreeMap * tree)
   {
     void* key = tree->current->key; //guardar llave
 
+    while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
+      tree->current = tree->current->parent;
+    
     if(tree->current == tree->root && tree->current->key != key) // en caso de ser la raiz y no ser la misma clave
     {
       tree->current = NULL;
       return NULL;
     }
-    
-    while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
-      tree->current = tree->current->parent;
-    
   }
     
   return tree->current->value;  
