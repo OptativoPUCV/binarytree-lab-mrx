@@ -213,13 +213,15 @@ void * nextTreeMap(TreeMap * tree)
 
   if(tree->current->right != NULL)
   {
-    TreeNode* aux_node = minimum(tree->current);
+    TreeNode* aux_node = tree->current->right;
+
+    aux_node = minimum(aux_node);
 
     /*
     if(aux_node->left == NULL) return aux_node->value;
     else aux_node = minimum(aux_node);
     */
-    
+
     tree->current = aux_node;
 
     return tree->current->value;
