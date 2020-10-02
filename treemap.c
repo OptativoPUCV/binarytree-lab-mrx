@@ -217,7 +217,7 @@ void * nextTreeMap(TreeMap * tree)
     TreeNode* aux_node = tree->current->right;
 
     if(aux_node->left == NULL) return aux_node->value;
-    else aux_node = minimum(aux_node);
+    else aux_node = aux_node->left;
 
     tree->current = aux_node;
 
@@ -225,12 +225,12 @@ void * nextTreeMap(TreeMap * tree)
   }
   else
   {
-    void* aux = tree->current->key;
+    void* key = tree->current->key; //guardar llave
 
-    while(tree->current->parent != NULL && aux <=  tree->current->key) // subir hasta la raiz
+    while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
       tree->current = tree->current->parent;
     
-    if(tree->current == tree->root && tree->current->key != aux) // en caso de ser la raiz y no ser la misma clave
+    if(tree->current == tree->root && tree->current->key != key) // en caso de ser la raiz y no ser la misma clave
     {
       tree->current = NULL;
       return NULL;
