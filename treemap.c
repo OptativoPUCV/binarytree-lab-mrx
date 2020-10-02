@@ -216,7 +216,7 @@ void * nextTreeMap(TreeMap * tree)  {
     if (tree->current->right != NULL){ 
         tree->current = tree->current->right;
         while(tree->current->left != NULL){
-            tree->current = tree->current->left;
+            tree->current = minimum(tree->current);
         }
     }else{ 
         void* llave = tree->current->key; 
