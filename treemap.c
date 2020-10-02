@@ -226,7 +226,7 @@ void * nextTreeMap(TreeMap * tree)
 
     return tree->current->value;
   }
-  else
+  else if(tree->current->right == NULL && tree->current->left != NULL)
   {
     void* key = tree->current->key; //guardar llave
 
@@ -238,6 +238,11 @@ void * nextTreeMap(TreeMap * tree)
       tree->current = NULL;
       return NULL;
     }
+  }
+  else
+  {
+    tree->current = NULL;
+    return NULL;
   }
     
   return tree->current->value;  
