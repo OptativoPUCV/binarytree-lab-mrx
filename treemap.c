@@ -176,7 +176,7 @@ void * upperBound(TreeMap * tree, void* key)
   if(tree->root == NULL || tree == NULL) return NULL;
 
   TreeNode* aux_node = tree->root;
-  TreeNode* higher = aux_node;
+  TreeNode* higher = tree->root;
 
   while(aux_node != NULL)
   {
@@ -198,7 +198,7 @@ void * firstTreeMap(TreeMap * tree)
   TreeNode* aux_node = tree->root;
   if(aux_node == NULL) return NULL;
 
-  while(aux_node->left != NULL) aux_node = aux_node->left;
+  aux_node = minimum(aux_node->left);
 
   if(aux_node == NULL) return NULL;
 
