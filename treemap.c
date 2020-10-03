@@ -226,7 +226,7 @@ void * nextTreeMap(TreeMap * tree)
   {
     void* key = tree->current->key; //guardar llave
 
-    if(tree->current->parent->key < key)
+    if(tree->current->parent->key <= key)
     {
       tree->current = NULL;
       return NULL;
