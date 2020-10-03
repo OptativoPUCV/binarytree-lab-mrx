@@ -176,7 +176,7 @@ void * upperBound(TreeMap * tree, void* key)
   if(tree->root == NULL || tree == NULL) return NULL;
 
   TreeNode* aux_node = tree->root;
-  TreeNode* higher = tree->root;
+  TreeNode* higher = NULL;
 
   while(aux_node != NULL)
   {
