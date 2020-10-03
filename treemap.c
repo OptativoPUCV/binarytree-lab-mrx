@@ -173,25 +173,29 @@ void * searchTreeMap(TreeMap * tree, void* key)
 
 void * upperBound(TreeMap * tree, void* key) 
 {
-  if(tree->root == NULL || tree == NULL) return NULL;
-
-  TreeNode* aux_node = tree->root;
-  TreeNode* higher = tree->root;
-
-  while(aux_node != NULL)
-  {
-    if(tree->lower_than(aux_node->key, key))
-     aux_node = aux_node->right;
-    else if(tree->lower_than(key, aux_node->key))
-    {
-      higher = aux_node;
-      aux_node = aux_node->left;
-    }else return aux_node->value;
-  }
-  
-  if(aux_node == NULL) return higher->value;
-  else if(aux_node->key == key) return aux_node->value;
-  else return NULL;
+  TreeNode* aux = tree->root;
+  TreeNode* mayor = tree->root;
+  if(aux  == NULL) return NULL; // Caso no hay raiz 
+  while(aux != NULL){ // Mientras la no se encuentre la key
+    if(aux->key == key){
+      tree->current = aux;
+      return aux->value;
+    }
+    if(aux->key >= key){
+      mayor = aux;
+      aux = aux->left;
+    }else{ //(aux->key < key)
+      aux = aux->right;
+    }
+    if (aux == NULL){
+      tree->current = mayor;
+      return mayor->value;
+     }
+    }
+    tree->current = aux; //Se actualiza current 
+    if(aux->key == key){
+        return aux->value;
+    }else return NULL;
 }
 
 void * firstTreeMap(TreeMap * tree)
