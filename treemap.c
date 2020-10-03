@@ -195,14 +195,11 @@ void * upperBound(TreeMap * tree, void* key)
 
 void * firstTreeMap(TreeMap * tree)
 {
-  TreeNode* aux_node = tree->root;
-  if(aux_node == NULL) return NULL;
+  if(tree->root == NULL) return NULL;
 
-  aux_node = minimum(aux_node->left);
+  tree->current = minimum(tree->root->left);
 
-  tree->current = aux_node;
-
-  return aux_node->value;
+  return tree->current->value;
 }
 
 void * nextTreeMap(TreeMap * tree) 
