@@ -175,7 +175,7 @@ void _upperBound(TreeMap* tree, TreeNode* root, void* key)
 {
   if (root == NULL) return;
     
-  if (root->key >= key)
+  if (root->key <= key)
   {
     tree->current = root;
     _upperBound(tree, root->left, key);
