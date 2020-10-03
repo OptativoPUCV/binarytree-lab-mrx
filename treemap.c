@@ -187,7 +187,7 @@ void * upperBound(TreeMap * tree, void* key)
       higher = aux_node;
       aux_node = aux_node->left;
     }else if(aux_node->key >= key) return NULL;
-    else return aux_node->value;
+    else return higher->value;
   }
   
   if(aux_node == NULL && higher != NULL) return higher->value;
