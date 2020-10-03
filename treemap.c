@@ -200,8 +200,6 @@ void * firstTreeMap(TreeMap * tree)
 
   aux_node = minimum(aux_node->left);
 
-  if(aux_node == NULL) return NULL;
-
   tree->current = aux_node;
 
   return aux_node->value;
