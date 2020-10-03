@@ -222,15 +222,9 @@ void * nextTreeMap(TreeMap * tree)
 
     return tree->current->value;
   }
-  else if(tree->current->right == NULL)
+  else if(tree->current->right == NULL && tree->current->parent->key >= tree->current->key)
   {
     void* key = tree->current->key; //guardar llave
-
-    if(tree->current->parent->key <= key)
-    {
-      tree->current = NULL;
-      return NULL;
-    }
 
     while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
       tree->current = tree->current->parent;
