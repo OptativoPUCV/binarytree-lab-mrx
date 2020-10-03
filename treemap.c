@@ -209,17 +209,11 @@ void * firstTreeMap(TreeMap * tree)
 
 void * nextTreeMap(TreeMap * tree) 
 {
-  if(tree->current == NULL || tree->root == NULL) return NULL;
+  if(tree->current == NULL) return NULL;
 
   if(tree->current->right != NULL)
   {
-    TreeNode* aux_node = tree->current->right;
-
-    if(aux_node->left == NULL) return aux_node->value;
-    else aux_node = minimum(aux_node);
-    
-    tree->current = aux_node;
-
+    tree->current = minimum(tree->current->right);
     return tree->current->value;
   }
   else if(tree->current->right == NULL)
