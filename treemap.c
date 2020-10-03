@@ -196,36 +196,39 @@ void * upperBound(TreeMap * tree, void* key)
 
 void * firstTreeMap(TreeMap * tree) 
 {
-    if(tree->root == NULL) return NULL;
+  if(tree->root == NULL) return NULL;
 
-    tree->current = minimum(tree->root);
+  tree->current = minimum(tree->root);
 
-    return tree->current->value;
+  return tree->current->value;
 }
 
 void * nextTreeMap(TreeMap * tree) 
 {
-  if(tree->current == NULL) return NULL;
+  if(tree->current == NULL || tree->root == NULL) return NULL;
 
   if(tree->current->right != NULL)
   {
     tree->current = minimum(tree->current->right);
+    if(tree->current == NULL) return NULL;
     return tree->current->value;
   }
-  else if(tree->current->right == NULL)
+  else
   {
-    void* key = tree->current->key; //guardar llave
+    TreeNode* aux = tree->current->parent;
 
-    while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
-      tree->current = tree->current->parent;
-    
-    if(tree->current == tree->root && tree->current->key != key) // en caso de ser la raiz y no ser la misma clave
+    while(aux != NULL && tree->current == aux->right)
     {
-      tree->current = NULL;
-      return NULL;
+      tree->current = aux;
+      aux = aux->parent;
     }
+
+    tree->current = aux;
   }
 
+  
+
+  if(tree->current == NULL) return NULL;
     
   return tree->current->value;  
 }
