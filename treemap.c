@@ -222,7 +222,7 @@ void * nextTreeMap(TreeMap * tree)
 
     return tree->current->value;
   }
-  else if(tree->current->right == NULL && tree->current->parent->key >= tree->current->key)
+  else if(tree->current->right == NULL)
   {
     void* key = tree->current->key; //guardar llave
 
