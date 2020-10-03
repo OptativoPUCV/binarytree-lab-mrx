@@ -220,7 +220,7 @@ void * nextTreeMap(TreeMap * tree)
   {
     void* key = tree->current->key;
 
-    while(key <=  tree->current->key)
+    while(key <=  tree->current->parent->key)
     {
       if(tree->current->parent == NULL) return NULL;
       else tree->current = tree->current->parent;
