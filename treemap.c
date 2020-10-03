@@ -218,20 +218,18 @@ void * nextTreeMap(TreeMap * tree)
   }
   else if(tree->current->right == NULL)
   {
-    if(tree->current->parent == NULL) return NULL;
+    void* key = tree->current->key; //guardar llave
+
+    while(tree->current->parent != NULL && key <=  tree->current->key) // subir hasta la raiz
+      tree->current = tree->current->parent;
     
-    while(tree->current->key <=  tree->current->parent->key)
-    {
-      if(tree->current->parent == NULL) return NULL;
-      else tree->current = tree->current->parent;
-    }
-    
-    if(tree->current == tree->root)
+    if(tree->current == tree->root && tree->current->key != key) // en caso de ser la raiz y no ser la misma clave
     {
       tree->current = NULL;
       return NULL;
     }
   }
 
+    
   return tree->current->value;  
 }
