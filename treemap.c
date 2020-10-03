@@ -171,33 +171,36 @@ void * searchTreeMap(TreeMap * tree, void* key)
   return NULL;
 }
 
-void _upperBound(TreeNode** current, TreeNode* root, void* key)
-{
-  if(root == NULL)  return;
-
-  if(root->key >= key)
-  {
-    *current = root;
-    _upperBound(current, root->left, key);
-  }
-  else _upperBound(current, root->right, key);
-
-}
-
 void * upperBound(TreeMap * tree, void* key) 
 {
-  tree->current = NULL;
-  _upperBound(&tree->current, tree->root, key);
-  return (tree->current != NULL) ? tree->current->value : NULL;
+  if(tree->root == NULL || tree == NULL) return NULL;
+
+  TreeNode* aux_node = tree->root;
+  TreeNode* higher = tree->root;
+
+  while(aux_node != NULL)
+  {
+    if(tree->lower_than(aux_node->key, key))
+     aux_node = aux_node->right;
+    else if(tree->lower_than(key, aux_node->key))
+    {
+      higher = aux_node;
+      aux_node = aux_node->left;
+    }else return aux_node->value;
+  }
+  
+  if(aux_node == NULL) return higher->value;
+  else if(aux_node->key == key) return aux_node->value;
+  else return NULL;
 }
 
-void * firstTreeMap(TreeMap * tree)
+void * firstTreeMap(TreeMap * tree) 
 {
-  if(tree->root == NULL) return NULL;
+    if(tree->root == NULL) return NULL;
 
-  tree->current = minimum(tree->root->left);
+    tree->current = minimum(tree->root);
 
-  return tree->current->value;
+    return tree->current->value;
 }
 
 void * nextTreeMap(TreeMap * tree) 
